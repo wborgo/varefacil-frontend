@@ -1,0 +1,31 @@
+@theme {
+  --font-ui: 'Urbanist', system-ui, sans-serif;
+
+  --color-bg: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-text: #1a1d21;
+  --color-muted: #5c6570;
+  --color-accent: #0f766e;
+  --color-border: #e2e8f0;
+}
+
+:root {
+  --font-ui: 'Urbanist', system-ui, sans-serif;
+  --color-bg: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-text: #1a1d21;
+  --color-muted: #5c6570;
+  --color-accent: #0f766e;
+  --color-border: #e2e8f0;
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.06);
+}
+
+.dark {
+  --color-bg: #0f1216;
+  --color-surface: #171b21;
+  --color-text: #e8eaed;
+  --color-muted: #9aa3ad;
+  --color-accent: #2dd4bf;
+  --color-border: #2a313a;
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.35), 0 8px 24px rgb(0 0 0 / 0.35);
+}
