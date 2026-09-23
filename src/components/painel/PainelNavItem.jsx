@@ -2,17 +2,27 @@ import { NavLink } from 'react-router-dom'
 
 /**
  * Um item do menu lateral do painel.
- * Responsabilidade: aparência + NavLink; não conhece a lista completa.
+ * `compact`: só ícone (rail no editor).
  */
-export default function PainelNavItem({ to, label, Icon, onNavigate, end = false }) {
+export default function PainelNavItem({
+  to,
+  label,
+  Icon,
+  onNavigate,
+  end = false,
+  compact = false,
+}) {
   return (
     <NavLink
       to={to}
       end={end}
       onClick={onNavigate}
+      title={label}
+      aria-label={label}
       className={({ isActive }) =>
         [
-          'flex min-h-11 cursor-pointer items-center gap-3 rounded-xl px-3 text-sm font-medium transition-colors',
+          'flex min-h-11 cursor-pointer items-center rounded-xl text-sm font-medium transition-colors',
+          compact ? 'justify-center px-0' : 'gap-3 px-3',
           isActive
             ? 'bg-accent/12 text-accent'
             : 'text-muted hover:bg-border/50 hover:text-text',
@@ -27,7 +37,7 @@ export default function PainelNavItem({ to, label, Icon, onNavigate, end = false
             className="shrink-0"
             aria-hidden
           />
-          <span>{label}</span>
+          {!compact ? <span>{label}</span> : null}
         </>
       )}
     </NavLink>
