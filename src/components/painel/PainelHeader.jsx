@@ -26,9 +26,13 @@ export default function PainelHeader({ onMenuClick }) {
         </IconButton>
         <Link
           to="/painel"
-          className="truncate text-base font-semibold tracking-tight text-text sm:text-lg"
+          className="flex h-9 shrink-0 items-center sm:h-11"
         >
-          VareFacil
+          <img
+            src={isDark ? '/images/logo_light.png' : '/images/logo_dark.png'}
+            alt="VareFacil"
+            className="h-full w-auto max-w-[12rem] object-contain object-left sm:max-w-[14rem]"
+          />
         </Link>
       </div>
 

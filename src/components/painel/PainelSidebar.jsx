@@ -1,4 +1,4 @@
-import { painelNavItems } from '@/pages/painel/painelNavItems.js'
+import { painelNavSections } from '@/pages/Painel/painelNavItems.js'
 import PainelNavItem from '@/components/painel/PainelNavItem.jsx'
 
 /**
@@ -28,15 +28,26 @@ export default function PainelSidebar({ open, onClose }) {
           <span className="text-sm font-semibold text-text">Menu</span>
         </div>
 
-        <nav className="flex flex-1 flex-col gap-1 p-3" aria-label="Painel">
-          {painelNavItems.map((item) => (
-            <PainelNavItem
-              key={item.id}
-              to={item.to}
-              label={item.label}
-              Icon={item.Icon}
-              onNavigate={onClose}
-            />
+        <nav
+          className="flex flex-1 flex-col gap-5 overflow-y-auto p-3"
+          aria-label="Painel"
+        >
+          {painelNavSections.map((section) => (
+            <div key={section.id} className="flex flex-col gap-1">
+              <p className="px-3 pb-1 text-[0.6875rem] font-semibold tracking-wider text-muted uppercase">
+                {section.label}
+              </p>
+              {section.items.map((item) => (
+                <PainelNavItem
+                  key={item.id}
+                  to={item.to}
+                  label={item.label}
+                  Icon={item.Icon}
+                  end={item.end}
+                  onNavigate={onClose}
+                />
+              ))}
+            </div>
           ))}
         </nav>
       </aside>

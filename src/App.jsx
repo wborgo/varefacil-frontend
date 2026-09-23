@@ -1,8 +1,10 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import PainelLayout from '@/layouts/PainelLayout.jsx'
-import Catalogo from '@/pages/painel/Catalogo.jsx'
-import Produtos from '@/pages/painel/Produtos.jsx'
-import Servicos from '@/pages/painel/Servicos.jsx'
+import Catalogo from '@/pages/Painel/Catalogo.jsx'
+import CatalogoEditor from '@/pages/Painel/CatalogoEditor.jsx'
+import Home from '@/pages/Painel/Home.jsx'
+import Produtos from '@/pages/Painel/Produtos.jsx'
+import Servicos from '@/pages/Painel/Servicos.jsx'
 
 export default function App() {
   return (
@@ -10,8 +12,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/painel" replace />} />
         <Route path="/painel" element={<PainelLayout />}>
-          <Route index element={<Navigate to="catalogo" replace />} />
+          <Route index element={<Home />} />
           <Route path="catalogo" element={<Catalogo />} />
+          <Route path="catalogo/novo" element={<CatalogoEditor />} />
           <Route path="produtos" element={<Produtos />} />
           <Route path="servicos" element={<Servicos />} />
         </Route>

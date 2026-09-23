@@ -4,10 +4,11 @@ import { NavLink } from 'react-router-dom'
  * Um item do menu lateral do painel.
  * Responsabilidade: aparência + NavLink; não conhece a lista completa.
  */
-export default function PainelNavItem({ to, label, Icon, onNavigate }) {
+export default function PainelNavItem({ to, label, Icon, onNavigate, end = false }) {
   return (
     <NavLink
       to={to}
+      end={end}
       onClick={onNavigate}
       className={({ isActive }) =>
         [

@@ -21,7 +21,7 @@ export default function PainelLayout() {
         />
 
         <div className="flex min-w-0 flex-1 flex-col p-3 sm:p-4">
-          <main className="min-h-0 flex-1 rounded-2xl border border-border bg-surface shadow-[var(--shadow-soft)]">
+          <main className="mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col rounded-2xl border border-border bg-surface shadow-[var(--shadow-soft)]">
             <Outlet />
           </main>
         </div>

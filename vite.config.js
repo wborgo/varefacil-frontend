@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const isWindows = process.platform === 'win32'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
@@ -15,5 +16,16 @@ export default defineConfig({
   },
   server: {
     port: 5173,
+    strictPort: true,
+    // Windows: casing errado em imports + FS events perdidos (AV/sync) quebram HMR
+    watch: isWindows
+      ? {
+          usePolling: true,
+          interval: 300,
+        }
+      : undefined,
+    hmr: {
+      overlay: true,
+    },
   },
 })
